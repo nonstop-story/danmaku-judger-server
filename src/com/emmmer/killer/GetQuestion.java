@@ -3,7 +3,7 @@ package com.emmmer.killer;
 import java.io.*;
 import java.util.Arrays;
 
-public class getQuestion {
+public class GetQuestion {
     public static int lineNumbers(String filename) {
         String temp = null;
         File txtFile = new File(filename);
