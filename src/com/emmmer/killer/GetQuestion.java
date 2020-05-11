@@ -2,6 +2,7 @@ package com.emmmer.killer;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Random;
 
 public class GetQuestion {
     public static int lineNumbers(String filename) {
@@ -39,16 +40,15 @@ public class GetQuestion {
 
 
     public static String[] outPut(String filename) {
-        var random = Math.random();
-        random *= (lineNumbers(filename) + 1);
-        var ordinaryQuestion = readByLines(filename, (int) random);
+        var random = new Random().nextInt(lineNumbers(filename));
+        var ordinaryQuestion = readByLines(filename, random);
         return ordinaryQuestion.split(":", 3);
     }
 
 
     public static void main(String[] args) {
-        System.out.println(lineNumbers("file.txt"));
-        var out = outPut("file.txt");
+        System.out.println(lineNumbers("database/file.txt"));
+        var out = outPut("database/file.txt");
         System.out.println(Arrays.toString(out));
     }
 }
