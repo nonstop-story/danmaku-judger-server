@@ -4,6 +4,7 @@ import io.ktor.http.*
 import kotlin.test.*
 import io.ktor.server.testing.*
 
+@ExperimentalStdlibApi
 class ApplicationTest {
     @Test
     fun testRoot() {
