@@ -2,9 +2,10 @@ package com.emmmer.killer
 
 import java.io.File
 
+@Suppress("MemberVisibilityCanBePrivate")
 data class Danmaku(val rawText: String) {
-    private val uid: Long
-    private val text: String
+    val uid: Long
+    val text: String
 
     init {
         val array = rawText.split(":", limit = 3)
