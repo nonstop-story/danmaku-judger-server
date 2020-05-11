@@ -1,4 +1,4 @@
-package com.killer.java;
+package com.emmmer.killer;
 
 public interface giveQuestion {
 }
