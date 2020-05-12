@@ -38,7 +38,7 @@ class BlackDB(file: String) {
 
     fun saveToFile(file: String) = File(file).writer().use { stream ->
         data.forEach {
-            stream.write("{${it.uid}}")
+            stream.write("${it.uid}\n")
         }
     }
 }
