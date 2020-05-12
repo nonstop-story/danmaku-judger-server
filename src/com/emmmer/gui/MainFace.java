@@ -14,21 +14,19 @@ public class MainFace {
         panel.add(questionLabel);
 
 
+        danmakuButton(panel, 0);
+
+        danmakuButton(panel, 100);
+
+        danmakuButton(panel, 200);
+
+        danmakuButton(panel, 300);
+    }
+
+    private static void danmakuButton(JPanel panel, int i) {
         JButton confirmButton1 = new JButton("danmakuText");
-        confirmButton1.setBounds(0, 80, 100, 100);
+        confirmButton1.setBounds(i, 80, 100, 100);
         panel.add(confirmButton1);
-
-        JButton confirmButton2 = new JButton("danmakuText");
-        confirmButton2.setBounds(100, 80, 100, 100);
-        panel.add(confirmButton2);
-
-        JButton confirmButton3 = new JButton("danmakuText");
-        confirmButton3.setBounds(200, 80, 100, 100);
-        panel.add(confirmButton3);
-
-        JButton confirmButton4 = new JButton("danmakuText");
-        confirmButton4.setBounds(300, 80, 100, 100);
-        panel.add(confirmButton4);
     }
 
     public static void main(String[] args) {
