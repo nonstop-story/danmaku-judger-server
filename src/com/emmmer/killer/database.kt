@@ -27,3 +27,18 @@ class DanmakuDB(file: String) {
 
     fun randomQuestion(): Danmaku? = data.randomOrNull()
 }
+
+data class Black(val uid: Long)
+
+@ExperimentalStdlibApi
+class BlackDB(file: String) {
+    private val data = File(file).readLines()
+        .map { Black(it.toLong()) }
+        .toList()
+
+    fun saveToFile(file: String) = File(file).writer().use { stream ->
+        data.forEach {
+            stream.write("{${it.uid}}")
+        }
+    }
+}
