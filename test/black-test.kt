@@ -8,8 +8,6 @@ class BlackTest {
     @Test
     fun testRandomQuestion() {
         val db = BlackDB("database/black.txt")
-        repeat(10) {
-            println(db.creatBlackList())
-        }
+        db.saveToFile()
     }
 }

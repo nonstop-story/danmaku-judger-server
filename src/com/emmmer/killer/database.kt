@@ -28,15 +28,19 @@ class DanmakuDB(file: String) {
     fun randomQuestion(): Danmaku? = data.randomOrNull()
 }
 
-data class Black(val uid: Long)
+data class BlockedUser(val uid: Long)
 
 @ExperimentalStdlibApi
-class BlackDB(file: String) {
+class BlackDB(private val file: String) {
     private val data = File(file).readLines()
-        .map { Black(it.toLong()) }
-        .toList()
+        .map { BlockedUser(it.toLong()) }
+        .toMutableList()
 
-    fun saveToFile(file: String) = File(file).writer().use { stream ->
+    fun add(uid: Long) = data.add(BlockedUser(uid))
+
+    fun size() = data.size
+
+    fun saveToFile() = File(file).writer().use { stream ->
         data.forEach {
             stream.write("${it.uid}\n")
         }
