@@ -8,31 +8,19 @@ public class MainFace {
 
         panel.setLayout(null);
 
-        JLabel userLabel = new JLabel("User:");
+        JLabel userLabel = new JLabel("请判断以下弹幕是否引战");
 
-        userLabel.setBounds(10, 20, 80, 25);
+        userLabel.setBounds(10, 0, 200, 30);
         panel.add(userLabel);
 
-        JTextField userText = new JTextField(20);
-        userText.setBounds(100, 20, 165, 25);
-        panel.add(userText);
 
-        JLabel passwordLabel = new JLabel("Password:");
-        passwordLabel.setBounds(10, 50, 80, 25);
-        panel.add(passwordLabel);
-
-
-        JPasswordField passwordText = new JPasswordField(20);
-        passwordText.setBounds(100, 50, 165, 25);
-        panel.add(passwordText);
-
-        JButton loginButton = new JButton("login");
-        loginButton.setBounds(10, 80, 80, 25);
-        panel.add(loginButton);
+        JButton confirmButton = new JButton("danmakuText");
+        confirmButton.setBounds(10, 80, 80, 25);
+        panel.add(confirmButton);
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Login Example");
+        JFrame frame = new JFrame("Judgement");
         frame.setSize(350, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
