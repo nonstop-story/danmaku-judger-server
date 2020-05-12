@@ -1,5 +1,6 @@
 package com.nonstop.judger
 
+import com.emmmer.killer.BlackDB
 import com.emmmer.killer.DanmakuDB
 import com.emmmer.killer.JudgeResult
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter
@@ -46,6 +47,7 @@ fun Application.module(testing: Boolean = false) {
     }
 
     val db = DanmakuDB("database/file.txt")
+    val blackDB = BlackDB("database/black.txt")
 
     routing {
         get("/") {
@@ -62,9 +64,14 @@ fun Application.module(testing: Boolean = false) {
 
         post("/questions/one") {
             val result = call.receive<JudgeResult>()
+            if (result is JudgeResult.Black) {
+                blackDB.add(result.uid)
+            }
+
             call.respond(
                 mapOf(
                     "result" to "OK",
+                    "msg" to "",
                     "type" to result.typeString(),
                     "uid" to result.uid()
                 )
